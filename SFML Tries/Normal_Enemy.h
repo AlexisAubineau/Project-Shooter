@@ -7,13 +7,17 @@ public:
 	NormalEnemy();
 	virtual ~NormalEnemy();
 
-	void Update(float elapsedTime);
+	void Update(float);
 	void Draw(sf::RenderWindow& rw);
 
 	float GetVelocity() const;
 
 private:
 	float _velocity;
-	float _maxVelocity;
+	float _angle;
+	float _elapsedTimeSinceStart;
+
+	float LinearVelocityX(float angle);
+	float LinearVelocityY(float angle);
 };
 

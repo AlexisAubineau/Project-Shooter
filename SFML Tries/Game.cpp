@@ -14,7 +14,6 @@ void Game::Start(void)
 	player1->SetPosition(200, (SCREEN_WIDTH / 2));
 
 	NormalEnemy* Enemy1 = new NormalEnemy();
-	Enemy1->SetPosition(SCREEN_WIDTH / 2, 700);
 
 	_gameObjectManager.Add("Player1", player1);
 	_gameObjectManager.Add("Enemy1", Enemy1);
@@ -67,8 +66,7 @@ bool Game::IsExisting()
 void Game::GameLoop()
 {
 	sf::Event currentEvent;
-	while (_mainWindow.pollEvent(currentEvent))
-	{
+	_mainWindow.pollEvent(currentEvent);
 		switch (_gameState)
 		{
 			case Game::ShowingMenu:
@@ -94,7 +92,7 @@ void Game::GameLoop()
 					}
 					break;
 				}
-		}
+		
 	}
 }
 

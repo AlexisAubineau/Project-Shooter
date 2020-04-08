@@ -4,12 +4,12 @@
 #include <chrono>
 
 NormalEnemy::NormalEnemy() :_velocity(0),
-_maxVelocity(600.0f)
+							_elapsedTimeSinceStart(0.0f)
 {
 	Load("images/normal_enemy.png");
 	assert(IsLoaded());
-
 	GetSprite().setOrigin(GetSprite().getScale().x / 2, GetSprite().getScale().y / 2);
+	_angle = rand() % 360;
 }
 
 NormalEnemy::~NormalEnemy()
@@ -28,20 +28,50 @@ float NormalEnemy::GetVelocity() const
 
 void NormalEnemy::Update(float elapsedTime)
 {
-		_velocity += 10.0f;
+	_elapsedTimeSinceStart += elapsedTime;
 
+	if (_elapsedTimeSinceStart < 3.0f)
+		return;
 
-	sf::Vector2f pos = this->GetPosition();
+	float moveAmount = _velocity * elapsedTime;
 
-	if (pos.x < GetSprite().getScale().x / 2
-		|| pos.x >(Game::SCREEN_WIDTH - GetSprite().getScale().x / 2)
-		|| pos.y < GetSprite().getScale().y / 2
-		|| pos.y < (Game::SCREEN_HEIGHT - GetSprite().getScale().y / 2))
+	float moveByX = LinearVelocityX(_angle) * moveAmount;
+	float moveByY = LinearVelocityY(_angle) * moveAmount;
+
+	if (GetPosition().x + moveByX <= 0 + GetWidth() / 2
+		|| GetPosition().x + GetHeight() / 2 + moveByX >= Game::SCREEN_WIDTH)
 	{
-		_velocity = -_velocity; //Limits movement to the screen size
+		
+		_angle = 360.0f - _angle;
+		if (_angle > 260.0f && _angle < 280.0f) _angle += 20.0f;
+		if (_angle > 80.0f && _angle < 100.0f) _angle += 20.0f;
+		moveByX = -moveByX;
 	}
 
-	GetSprite().move(_velocity * elapsedTime, _velocity);
+	if (GetPosition().y + GetHeight() / 2 + moveByY >= Game::SCREEN_HEIGHT)
+	{
+		// move to middle of the screen for now and randomize angle
+		GetSprite().setPosition(Game::SCREEN_WIDTH / 2, Game::SCREEN_HEIGHT / 2);
+		_angle = rand() % 360;
+		_velocity = 220.0f;
+		_elapsedTimeSinceStart = 0.0f;
+	}
+
+	GetSprite().move(moveByX, moveByY);
+}
+
+float NormalEnemy::LinearVelocityX(float angle)
+{
+	angle -= 90;
+	if (angle < 0) angle = 360 + angle;
+	return (float)std::cos(angle * (3.1415926 / 180.0f));
+}
+
+float NormalEnemy::LinearVelocityY(float angle)
+{
+	angle -= 90;
+	if (angle < 0) angle = 360 + angle;
+	return (float)std::sin(angle * (3.1415926 / 180.0f));
 }
 
 
