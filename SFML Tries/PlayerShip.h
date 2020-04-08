@@ -13,6 +13,6 @@ public:
 	float GetVelocity() const;
 
 private:
-	float _velocity;
-	float _maxVelocity;
+	float _velocityRight;
+	float _velocityForward;
 };

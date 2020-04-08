@@ -2,8 +2,7 @@
 #include "PlayerShip.h"
 #include "Game.h"
 
-PlayerShip::PlayerShip():_velocity(0),
-_maxVelocity(600.0f)
+PlayerShip::PlayerShip():_velocityRight(0), _velocityForward(0)
 {
 	Load("images/ship.png");
 	assert(IsLoaded());
@@ -22,44 +21,42 @@ void PlayerShip::Draw(sf::RenderWindow& rw)
 
 float PlayerShip::GetVelocity() const
 {
-	return _velocity;
+	return _velocityRight, _velocityForward;
 }
 
 void PlayerShip::Update(float elapsedTime)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
 	{
-		_velocity += 10.0f;
+		_velocityForward += 10.0f;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-		_velocity -= 10.0f;
+		_velocityForward -= 10.0f;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
 	{
-		_velocity -= 10.0f;
+		_velocityRight += 10.0f;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
-		_velocity += 10.0f;
+		_velocityRight -= 10.0f;
 	}
-
-	if (_velocity > _maxVelocity)
-		_velocity = _maxVelocity;
-	if (_velocity < -_maxVelocity)
-		_velocity = -_maxVelocity;
-
+	
 	sf::Vector2f pos = this->GetPosition();
 
-	if (pos.x < GetSprite().getScale().x / 2
-		|| pos.x >(Game::SCREEN_WIDTH - GetSprite().getScale().x / 2)
-		|| pos.y < GetSprite().getScale().y / 2
-		|| pos.y < (Game::SCREEN_HEIGHT - GetSprite().getScale().y / 2))
+	if (pos.x < GetSprite().getScale().x / 1
+		|| pos.x >(Game::SCREEN_WIDTH - GetSprite().getScale().x / 1)
+		|| pos.y < GetSprite().getScale().y / 1
+		|| pos.y < (Game::SCREEN_HEIGHT - GetSprite().getScale().y / 1))
 	{
-		_velocity = -_velocity; //Limits movement to the screen size
+		_velocityForward = -_velocityForward; //Limits movement to the screen size
+		_velocityRight = -_velocityRight ; //Limits movement to the screen size
 	}
 
-	GetSprite().move(_velocity * elapsedTime, 0);
+	std::cout << "Vitesse Forward : " << _velocityForward << "\nVitesse Right : " << _velocityRight << std::endl;
+
+	GetSprite().move(_velocityRight , _velocityForward);
 }
 
 
