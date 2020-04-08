@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "PlayerShip.h"
 #include "Game.h"
+#include "Projectile.h"
 
 PlayerShip::PlayerShip():_velocityRight(0), _velocityForward(0)
 {
@@ -44,9 +45,10 @@ void PlayerShip::Update(float elapsedTime)
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
-		
+		Projectile();
+		std::cout << "New projectile" << std::endl;
 	}
-	
+
 	sf::Vector2f pos = this->GetPosition();
 
 	if (pos.x < GetSprite().getScale().x / 1
