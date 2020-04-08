@@ -47,19 +47,18 @@ void PlayerShip::Update(float elapsedTime)
 	{
 		Projectile* bullet = new Projectile;
 		Game::_gameObjectManager.Add("Bullet", bullet);
-		std::cout << "New projectile" << std::endl;
+		bullet->SetPosition(GetSprite().getPosition().x, GetSprite().getPosition().y);
+		std::cout << "New projectile : " << bullet->GetPosition().x << ", " << bullet->GetPosition().y << std::endl;
 	}
 
 	if (_velocityForward > _maxVelocity)
 		_velocityForward = _maxVelocity;
+	else if (_velocityRight > _maxVelocity)
+		_velocityRight = _maxVelocity;
 
 	if (_velocityForward < -_maxVelocity)
 		_velocityForward = -_maxVelocity;
-
-	if (_velocityRight > _maxVelocity)
-		_velocityRight = _maxVelocity;
-
-	if (_velocityRight < -_maxVelocity)
+	else if (_velocityRight < -_maxVelocity)
 		_velocityRight = -_maxVelocity;
 	
 	sf::Vector2f pos = this->GetPosition();
@@ -72,8 +71,6 @@ void PlayerShip::Update(float elapsedTime)
 		_velocityForward = -_velocityForward; //Limits movement to the screen size
 		_velocityRight = -_velocityRight ; //Limits movement to the screen size
 	}*/
-
-	std::cout << "Vitesse Forward : " << _velocityForward << "\nVitesse Right : " << _velocityRight << std::endl;
 
 	GetSprite().move(_velocityRight , _velocityForward);
 }
