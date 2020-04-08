@@ -11,10 +11,13 @@ void Game::Start(void)
 	_mainWindow.create(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32), "Pat's Shooter Try");
 
 	PlayerShip *player1 = new PlayerShip();
-	player1->Load("images/ship.png");
 	player1->SetPosition(200, (SCREEN_WIDTH / 2));
 
+	NormalEnemy* Enemy1 = new NormalEnemy();
+	Enemy1->SetPosition(SCREEN_WIDTH / 2, 700);
+
 	_gameObjectManager.Add("Player1", player1);
+	_gameObjectManager.Add("Enemy1", Enemy1);
 	_gameState = Game::ShowingSplash;
 
 //As long as a state of the game Exists, the game will obviously stay open and continue its process. Unless ofc you close it.	

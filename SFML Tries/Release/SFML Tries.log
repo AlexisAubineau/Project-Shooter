@@ -1,7 +1,11 @@
 ﻿  Game.cpp
+  GameObjectManager.cpp
+  Main.cpp
+  Normal_enemy.cpp
+  PlayerShip.cpp
   Génération de code en cours
-  12 of 331 functions ( 3.6%) were compiled, the rest were copied from previous compilation.
+  4 of 337 functions ( 1.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    13 functions had inline decision re-evaluated but remain unchanged
   Fin de la génération du code
-  SFML Tries.vcxproj -> C:\Users\patrick 96\source\repos\SFML Tries\Release\SFML Tries.exe
+  SFML Tries.vcxproj -> C:\Users\patrick 96\source\repos\Shooter\Project-Shooter\Release\SFML Tries.exe

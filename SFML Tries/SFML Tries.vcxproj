@@ -167,6 +167,7 @@
     <ClCompile Include="GameObjectManager.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Normal_enemy.cpp" />
     <ClCompile Include="PlayerShip.cpp" />
     <ClCompile Include="SplashScreen.cpp" />
     <ClCompile Include="stdafx.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObjectManager.h" />
     <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="Normal_Enemy.h" />
     <ClInclude Include="PlayerShip.h" />
     <ClInclude Include="SplashScreen.h" />
     <ClInclude Include="stdafx.h" />

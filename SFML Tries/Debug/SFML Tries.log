@@ -1,6 +1,12 @@
 ﻿  Game.cpp
   GameObjectManager.cpp
+  MainMenu.cpp
   Main.cpp
+  Normal_enemy.cpp
   PlayerShip.cpp
+  SplashScreen.cpp
+  stdafx.cpp
+  VisibleGameObject.cpp
   Génération de code en cours...
-  SFML Tries.vcxproj -> C:\Users\patrick 96\source\repos\SFML Tries\Debug\SFML Tries.exe
+  LINK : C:\Users\patrick 96\source\repos\Shooter\Project-Shooter\Debug\SFML Tries.exe introuvable ou non généré par la dernière édition de liens incrémentielle ; édition de liens complète en cours
+  SFML Tries.vcxproj -> C:\Users\patrick 96\source\repos\Shooter\Project-Shooter\Debug\SFML Tries.exe
