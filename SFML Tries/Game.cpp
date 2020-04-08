@@ -9,6 +9,7 @@ void Game::Start(void)
 		return;
 //Creates the render window to display all our stuffs.
 	_mainWindow.create(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32), "Pat's Shooter Try");
+	_mainWindow.setFramerateLimit(60);
 
 	PlayerShip *player1 = new PlayerShip();
 	player1->SetPosition(200, (SCREEN_WIDTH / 2));

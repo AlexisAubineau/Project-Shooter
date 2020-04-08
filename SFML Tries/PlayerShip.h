@@ -15,4 +15,5 @@ public:
 private:
 	float _velocityRight;
 	float _velocityForward;
+	float _maxVelocity;
 };

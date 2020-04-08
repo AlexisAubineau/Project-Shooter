@@ -13,6 +13,7 @@ public:
 	const static sf::InputStream& GetInput;
 	const static int SCREEN_WIDTH = 1024;
 	const static int SCREEN_HEIGHT = 768;
+	static GameObjectManager _gameObjectManager;
 private:
 	static bool IsExisting();
 	static void GameLoop();
@@ -24,5 +25,5 @@ private:
 	static GameState _gameState;
 	static sf::RenderWindow _mainWindow;
 
-	static GameObjectManager _gameObjectManager;
+	
 };
