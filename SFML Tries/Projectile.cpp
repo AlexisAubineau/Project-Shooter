@@ -1,5 +1,6 @@
 #include "Projectile.h"
-#include <cassert>
+#include "stdafx.h"
+#include "Game.h"
 
 
 Projectile::Projectile()
@@ -16,6 +17,11 @@ Projectile::~Projectile()
 void Projectile::Draw(sf::RenderWindow& rw)
 {
 	VisibleGameObject::Draw(rw);
+}
+
+float Projectile::GetVelocity() const
+{
+	return _velocity;
 }
 
 void Projectile::Update(float elapsedTime)

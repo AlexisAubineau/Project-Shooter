@@ -1,4 +1,5 @@
 #pragma once
+
 #include "VisibleGameObject.h"
 
 class Projectile: public VisibleGameObject
@@ -9,4 +10,9 @@ public:
 
 	void Update(float elapsedTime);
 	void Draw(sf::RenderWindow& rw);
+
+	float GetVelocity() const;
+
+private:
+	float _velocity;
 };

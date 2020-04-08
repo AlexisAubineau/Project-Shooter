@@ -42,6 +42,10 @@ void PlayerShip::Update(float elapsedTime)
 	{
 		_velocityRight -= 10.0f;
 	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	{
+		
+	}
 	
 	sf::Vector2f pos = this->GetPosition();
 
