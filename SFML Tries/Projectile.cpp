@@ -3,7 +3,9 @@
 
 Projectile::Projectile()
 {
-	
+	Load("");
+	assert(IsLoaded());
+	GetSprite().setOrigin(GetSprite().getScale().x / 2, GetSprite().getScale().y / 2);
 }
 
 Projectile::~Projectile()
