@@ -4,7 +4,7 @@
 
 Projectile::Projectile()
 {
-	Load("images/");
+	Load("images/bullet.png");
 	assert(IsLoaded());
 	GetSprite().setOrigin(GetSprite().getScale().x / 2, GetSprite().getScale().y / 2);
 }
