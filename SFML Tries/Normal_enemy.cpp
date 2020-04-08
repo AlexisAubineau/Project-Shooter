@@ -3,13 +3,14 @@
 #include "Game.h"
 #include <chrono>
 
-NormalEnemy::NormalEnemy() :_velocity(0),
+NormalEnemy::NormalEnemy() :_velocity(230.0f),
 							_elapsedTimeSinceStart(0.0f)
 {
 	Load("images/normal_enemy.png");
 	assert(IsLoaded());
 	GetSprite().setOrigin(GetSprite().getScale().x / 2, GetSprite().getScale().y / 2);
-	_angle = rand() % 360;
+	float random_int = std::rand() % 360 + 1;
+	_angle = random_int;
 }
 
 NormalEnemy::~NormalEnemy()
@@ -29,17 +30,31 @@ float NormalEnemy::GetVelocity() const
 void NormalEnemy::Update(float elapsedTime)
 {
 	_elapsedTimeSinceStart += elapsedTime;
-
+	sf::Clock timer;
+	float DeltaTime = 0;
 	if (_elapsedTimeSinceStart < 3.0f)
+	{
+		timer.restart();
+		DeltaTime = timer.getElapsedTime().asSeconds();
 		return;
+	}
 
 	float moveAmount = _velocity * elapsedTime;
 
 	float moveByX = LinearVelocityX(_angle) * moveAmount;
 	float moveByY = LinearVelocityY(_angle) * moveAmount;
 
-	if (GetPosition().x + moveByX <= 0 + GetWidth() / 2
-		|| GetPosition().x + GetHeight() / 2 + moveByX >= Game::SCREEN_WIDTH)
+	
+	
+	
+	if (DeltaTime > 2.0f)
+	{
+		_angle = _angle+30;
+		timer.restart();
+	}
+
+	if (GetPosition().x + moveByX <= 0 + GetWidth()/2
+		|| GetPosition().x + GetHeight()/2 + moveByX >= Game::SCREEN_WIDTH)
 	{
 		
 		_angle = 360.0f - _angle;
@@ -48,14 +63,7 @@ void NormalEnemy::Update(float elapsedTime)
 		moveByX = -moveByX;
 	}
 
-	if (GetPosition().y + GetHeight() / 2 + moveByY >= Game::SCREEN_HEIGHT)
-	{
-		// move to middle of the screen for now and randomize angle
-		GetSprite().setPosition(Game::SCREEN_WIDTH / 2, Game::SCREEN_HEIGHT / 2);
-		_angle = rand() % 360;
-		_velocity = 220.0f;
-		_elapsedTimeSinceStart = 0.0f;
-	}
+
 
 	GetSprite().move(moveByX, moveByY);
 }
