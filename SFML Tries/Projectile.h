@@ -10,7 +10,7 @@ public:
 
 	void Update(float elapsedTime);
 	void Draw(sf::RenderWindow& rw);
-
+	void SpawnBullet();
 	float GetVelocity() const;
 
 private:

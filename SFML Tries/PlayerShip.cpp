@@ -3,8 +3,6 @@
 #include "Game.h"
 #include "Projectile.h"
 
-Projectile* bullet = new Projectile;
-
 PlayerShip::PlayerShip():_velocityRight(0), _velocityForward(0), _maxVelocity(10)
 {
 	Load("images/ship.png");
@@ -47,9 +45,7 @@ void PlayerShip::Update(float elapsedTime)
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
-		Game::_gameObjectManager.Add("Bullet", bullet + 1);
-		bullet->SetPosition(GetSprite().getPosition().x + 90, GetSprite().getPosition().y + 8);
-		std::cout << "New projectile : " << bullet->GetPosition().x << ", " << bullet->GetPosition().y << std::endl;
+		Projectile().SpawnBullet();
 	}
 
 	if (_velocityForward > _maxVelocity)

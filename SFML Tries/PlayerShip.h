@@ -6,10 +6,9 @@ class PlayerShip : public VisibleGameObject
 public:
 	PlayerShip();
 	~PlayerShip();
-
+	
 	void Update(float elapsedTime);
 	void Draw(sf::RenderWindow& rw);
-
 	float GetVelocity() const;
 
 private:
