@@ -14,11 +14,11 @@ void Game::Start(void)
 	PlayerShip *player1 = new PlayerShip();
 	player1->SetPosition(200, (SCREEN_WIDTH / 2));
 
-	NormalEnemy* Enemy1 = new NormalEnemy();
-	Enemy1->SetPosition(SCREEN_WIDTH, (SCREEN_HEIGHT / 2) - 15);
+	EnemyWaveSpawner* Enemies = new EnemyWaveSpawner();
+	Enemies->SetPosition((SCREEN_WIDTH/2), (SCREEN_WIDTH / 2));
 
 	_gameObjectManager.Add("Player1", player1);
-	_gameObjectManager.Add("Enemy1", Enemy1);
+	_gameObjectManager.Add("Enemy_Spawner", Enemies);
 	_gameState = Game::ShowingSplash;
 
 //As long as a state of the game Exists, the game will obviously stay open and continue its process. Unless ofc you close it.	

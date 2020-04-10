@@ -2,7 +2,7 @@
 #include "SFML/Window.hpp"
 #include "SFML/Graphics.hpp"
 #include  "PlayerShip.h"
-#include "Normal_Enemy.h"
+#include "Enemy_Wave_Spawner.h"
 #include "GameObjectManager.h"
 
 class Game

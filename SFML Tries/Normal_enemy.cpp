@@ -41,35 +41,28 @@ void NormalEnemy::Update(float elapsedTime)
 		shoot_patern++;
 	}
 	
-	if (_elapsedTimeSinceStart < 10.0f)
-		return;
 	
 	float moveAmount = _velocity * elapsedTime;
 
 
-	float moveByX = LinearVelocityX(_angle) * moveAmount;
+	float moveByX = LinearVelocityX(_angle) * moveAmount/3;
 	float moveByY = LinearVelocityY(_angle++) * moveAmount;
 
-	EnemyProjectile* laser = new EnemyProjectile;
+	
 	if (shoot_patern >= 30)
 	{
 		projectile_count++;
+		EnemyProjectile* laser = new EnemyProjectile;
 		Game::_gameObjectManager.Add("Laser"+(char)(projectile_count), laser);
-		laser->SetPosition(GetSprite().getPosition().x, GetSprite().getPosition().y);
+		laser->SetPosition(this->GetPosition().x, this->GetPosition().y);
 		shoot_patern = 0;
 		std::cout << Game::_gameObjectManager.GetObjectCount() << std::endl;
-		
-		VisibleGameObject* onGoingLaser = Game::_gameObjectManager.Get(("Laser" + (char(projectile_count))));
-		if (onGoingLaser->GetPosition().x <= 0)
+		if (Game::_gameObjectManager.Get("Laser" + (char)(projectile_count))->GetPosition().x < 0)
 		{
-			Game::_gameObjectManager.Remove("Laser" + (char(projectile_count)));
+			Game::_gameObjectManager.Remove("Laser" + (char)(projectile_count));
+			
 		}
 	}
-
-	
-
-	
-	
 	GetSprite().move(moveByX, moveByY);
 }
 
