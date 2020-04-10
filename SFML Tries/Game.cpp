@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "Game.h"
 
-
+sf::Sprite background;
+sf::Texture background_texture;
 void Game::Start(void)
 {
 //Checks the current state of the game before starting the game
@@ -16,6 +17,10 @@ void Game::Start(void)
 
 	EnemyWaveSpawner* Enemies = new EnemyWaveSpawner();
 	Enemies->SetPosition((SCREEN_WIDTH/2), (SCREEN_WIDTH / 2));
+
+	
+	background_texture.loadFromFile("images/background.png");
+	background.setTexture(background_texture);
 
 	_gameObjectManager.Add("Player1", player1);
 	_gameObjectManager.Add("Enemy_Spawner", Enemies);
@@ -83,7 +88,9 @@ void Game::GameLoop()
 				}
 			case Game::Playing:
 				{
+				
 				_mainWindow.clear((sf::Color(0, 0, 0)));
+				_mainWindow.draw(background);
 				_gameObjectManager.UpdateAll();
 				_gameObjectManager.DrawAll(_mainWindow);
 				
