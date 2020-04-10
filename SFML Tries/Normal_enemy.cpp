@@ -1,9 +1,8 @@
 #include "stdafx.h"
 #include "Normal_Enemy.h"
 #include "Game.h"
-#include <chrono>
 
-NormalEnemy::NormalEnemy() :_velocity(230.0f),
+NormalEnemy::NormalEnemy() :_velocity(-230.0f),
 							_elapsedTimeSinceStart(0.0f)
 {
 	Load("images/normal_enemy.png");
@@ -30,40 +29,15 @@ float NormalEnemy::GetVelocity() const
 void NormalEnemy::Update(float elapsedTime)
 {
 	_elapsedTimeSinceStart += elapsedTime;
-	sf::Clock timer;
-	float DeltaTime = 0;
+	
 	if (_elapsedTimeSinceStart < 3.0f)
-	{
-		timer.restart();
-		DeltaTime = timer.getElapsedTime().asSeconds();
 		return;
-	}
-
+	
 	float moveAmount = _velocity * elapsedTime;
 
+
 	float moveByX = LinearVelocityX(_angle) * moveAmount;
-	float moveByY = LinearVelocityY(_angle) * moveAmount;
-
-	
-	
-	
-	if (DeltaTime > 2.0f)
-	{
-		_angle = _angle+30;
-		timer.restart();
-	}
-
-	if (GetPosition().x + moveByX <= 0 + GetWidth()/2
-		|| GetPosition().x + GetHeight()/2 + moveByX >= Game::SCREEN_WIDTH)
-	{
-		
-		_angle = 360.0f - _angle;
-		if (_angle > 260.0f && _angle < 280.0f) _angle += 20.0f;
-		if (_angle > 80.0f && _angle < 100.0f) _angle += 20.0f;
-		moveByX = -moveByX;
-	}
-
-
+	float moveByY = LinearVelocityY(_angle++) * moveAmount;
 
 	GetSprite().move(moveByX, moveByY);
 }
@@ -79,7 +53,7 @@ float NormalEnemy::LinearVelocityY(float angle)
 {
 	angle -= 90;
 	if (angle < 0) angle = 360 + angle;
-	return (float)std::sin(angle * (3.1415926 / 180.0f));
+	return (float)std::sin(angle * (3.1415926 / 40.0f));
 }
 
 
