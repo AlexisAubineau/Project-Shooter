@@ -30,6 +30,7 @@ void PlayerShip::Update(float elapsedTime)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
 	{
 		_velocityForward -= 1.0f;
+		//std::cout << "Position Player : x:" << GetSprite().getPosition().y << std::endl;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
@@ -57,18 +58,37 @@ void PlayerShip::Update(float elapsedTime)
 		_velocityForward = -_maxVelocity;
 	else if (_velocityRight < -_maxVelocity)
 		_velocityRight = -_maxVelocity;
+
+	if (GetSprite().getPosition().y >= Game().SCREEN_HEIGHT - 34 || GetSprite().getPosition().y <= 0)
+	{
+		if (GetSprite().getPosition().y > 0)
+		{
+			GetSprite().setPosition(GetSprite().getPosition().x, Game().SCREEN_HEIGHT - 34);
+			_velocityForward = -_velocityForward / 2;
+		}
+		else
+		{
+			GetSprite().setPosition(GetSprite().getPosition().x, 0);
+			_velocityForward = -_velocityForward / 2;
+		}
+	}
+	
+
+	if (GetSprite().getPosition().x >= Game().SCREEN_WIDTH - 82 || GetSprite().getPosition().x <= 0)
+	{
+		if(GetSprite().getPosition().x > 0)
+		{
+			GetSprite().setPosition(Game().SCREEN_WIDTH - 82, GetSprite().getPosition().y);
+			_velocityRight = -_velocityRight / 2;
+		}
+		else
+		{
+			GetSprite().setPosition(0, GetSprite().getPosition().y);
+			_velocityRight = -_velocityRight / 2;
+		}
+	}
 	
 	sf::Vector2f pos = this->GetPosition();
-
-	/*if (pos.x < GetSprite().getScale().x / 1
-		|| pos.x >(Game::SCREEN_WIDTH - GetSprite().getScale().x / 1)
-		|| pos.y < GetSprite().getScale().y / 1
-		|| pos.y < (Game::SCREEN_HEIGHT - GetSprite().getScale().y / 1))
-	{
-		_velocityForward = -_velocityForward; //Limits movement to the screen size
-		_velocityRight = -_velocityRight ; //Limits movement to the screen size
-	}*/
-
 	GetSprite().move(_velocityRight , _velocityForward);
 }
 
