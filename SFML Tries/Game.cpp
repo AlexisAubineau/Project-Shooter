@@ -15,7 +15,7 @@ void Game::Start(void)
 	player1->SetPosition(200, (SCREEN_WIDTH / 2));
 
 	NormalEnemy* Enemy1 = new NormalEnemy();
-	Enemy1->SetPosition((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2) - 15);
+	Enemy1->SetPosition(SCREEN_WIDTH, (SCREEN_HEIGHT / 2) - 15);
 
 	_gameObjectManager.Add("Player1", player1);
 	_gameObjectManager.Add("Enemy1", Enemy1);
