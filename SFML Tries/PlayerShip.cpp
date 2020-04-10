@@ -3,6 +3,8 @@
 #include "Game.h"
 #include "Projectile.h"
 
+float projectiles_count = 0;
+
 PlayerShip::PlayerShip():_velocityRight(0), _velocityForward(0), _maxVelocity(10)
 {
 	Load("images/ship.png");
@@ -46,7 +48,16 @@ void PlayerShip::Update(float elapsedTime)
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
-		Projectile().SpawnBullet();
+		projectiles_count++;
+		Projectile* bullet = new Projectile;
+		Game::_gameObjectManager.Add("bullet" + (char)(projectiles_count), bullet);
+		bullet->SetPosition(this->GetPosition().x, this->GetPosition().y);
+		std::cout << Game::_gameObjectManager.GetObjectCount() << std::endl;
+		if (Game::_gameObjectManager.Get("bullet" + (char)(projectiles_count))->GetPosition().x > Game::SCREEN_WIDTH)
+		{
+			Game::_gameObjectManager.Remove("bullet remove" + (char)(projectiles_count));
+
+		}
 	}
 
 	if (_velocityForward > _maxVelocity)

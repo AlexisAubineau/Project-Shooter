@@ -20,14 +20,14 @@ void Projectile::Draw(sf::RenderWindow& rw)
 	VisibleGameObject::Draw(rw);
 }
 
-void Projectile::SpawnBullet()
+/*void Projectile::SpawnBullet()
 {
 	sf::String bullets;
 	bullets = "Projectile";
 	Game::_gameObjectManager.Add(bullets, bullet);
 	bullet->SetPosition(PlayerShip().GetPosition().x + 90, PlayerShip().GetPosition().y + 8);
 	std::cout << bullet << ": " << bullet->GetPosition().x << ", " << bullet->GetPosition().y << std::endl;
-}
+}*/
 
 float Projectile::GetVelocity() const
 {
@@ -36,5 +36,5 @@ float Projectile::GetVelocity() const
 
 void Projectile::Update(float elapsedTime)
 {
-	
+	GetSprite().move(10.0f, 0.0f);
 }
