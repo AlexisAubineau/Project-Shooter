@@ -3,7 +3,8 @@
 #include "Game.h"
 #include "Projectile.h"
 
-float projectiles_count = 0;
+float player_bullets = 0;
+float bullet_patern = 0;
 
 PlayerShip::PlayerShip():_velocityRight(0), _velocityForward(0), _maxVelocity(10)
 {
@@ -48,15 +49,22 @@ void PlayerShip::Update(float elapsedTime)
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
-		projectiles_count++;
-		Projectile* bullet = new Projectile;
-		Game::_gameObjectManager.Add("bullet" + (char)(projectiles_count), bullet);
-		bullet->SetPosition(this->GetPosition().x, this->GetPosition().y);
-		std::cout << Game::_gameObjectManager.GetObjectCount() << std::endl;
-		if (Game::_gameObjectManager.Get("bullet" + (char)(projectiles_count))->GetPosition().x > Game::SCREEN_WIDTH)
+		if (bullet_patern <= 15)
 		{
-			Game::_gameObjectManager.Remove("bullet remove" + (char)(projectiles_count));
+			bullet_patern++;
+		}
 
+		if (bullet_patern >= 15)
+		{
+			player_bullets++;
+			Projectile* bullet = new Projectile;
+			Game::_gameObjectManager.Add("bullet" + (char)(player_bullets), bullet);
+			bullet->SetPosition(this->GetPosition().x, this->GetPosition().y);
+			bullet_patern = 0;
+			if (Game::_gameObjectManager.Get("bullet" + (char)(player_bullets))->GetPosition().x >= Game::SCREEN_WIDTH)
+			{
+				Game::_gameObjectManager.Remove("bullet" + (char)(player_bullets));
+			}
 		}
 	}
 
