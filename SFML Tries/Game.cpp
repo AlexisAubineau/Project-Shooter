@@ -68,6 +68,12 @@ bool Game::IsExisting()
 		return false;
 }
 
+sf::RenderWindow& Game::GetWindow()
+{
+	return _mainWindow;
+}
+
+
 //The GameLoop
 
 void Game::GameLoop()

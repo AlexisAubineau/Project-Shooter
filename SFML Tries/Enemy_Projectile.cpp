@@ -25,5 +25,4 @@ void EnemyProjectile::Draw(sf::RenderWindow& rw)
 void EnemyProjectile::Update(float elapsedTime)
 {
 	GetSprite().move(-10.0f,0.0f);
-
 }

@@ -1,12 +1,17 @@
-﻿  Game.cpp
+﻿  Enemy_Projectile.cpp
+  Enemy_Wave_Spawner.cpp
+c:\users\patrick 96\source\repos\shooter\project-shooter\sfml tries\enemy_wave_spawner.cpp(10): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+c:\users\patrick 96\source\repos\shooter\project-shooter\sfml tries\enemy_wave_spawner.cpp(43): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+  Game.cpp
   GameObjectManager.cpp
   MainMenu.cpp
   Main.cpp
   Normal_enemy.cpp
+c:\users\patrick 96\source\repos\shooter\project-shooter\sfml tries\normal_enemy.cpp(17): warning C4244: 'initialisation' : conversion de 'int' en 'float', perte possible de données
   PlayerShip.cpp
+  Projectile.cpp
   SplashScreen.cpp
   stdafx.cpp
   VisibleGameObject.cpp
   Génération de code en cours...
-  LINK : C:\Users\patrick 96\source\repos\Shooter\Project-Shooter\Debug\SFML Tries.exe introuvable ou non généré par la dernière édition de liens incrémentielle ; édition de liens complète en cours
   SFML Tries.vcxproj -> C:\Users\patrick 96\source\repos\Shooter\Project-Shooter\Debug\SFML Tries.exe
