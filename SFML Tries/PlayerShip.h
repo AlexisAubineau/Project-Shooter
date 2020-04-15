@@ -15,4 +15,7 @@ private:
 	float _velocityRight;
 	float _velocityForward;
 	float _maxVelocity;
+	float _bulletPatern;
+	
+	int _playerProjectile;
 };

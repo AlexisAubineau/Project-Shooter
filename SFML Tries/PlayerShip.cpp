@@ -3,10 +3,7 @@
 #include "Game.h"
 #include "Projectile.h"
 
-float player_bullets = 0;
-float bullet_patern = 0;
-
-PlayerShip::PlayerShip():_velocityRight(0), _velocityForward(0), _maxVelocity(10)
+PlayerShip::PlayerShip():_velocityRight(0), _velocityForward(0), _maxVelocity(10), _bulletPatern(0), _playerProjectile(0)
 {
 	Load("images/ship.png");
 	assert(IsLoaded());
@@ -49,25 +46,26 @@ void PlayerShip::Update(float elapsedTime)
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
-		if (bullet_patern <= 15)
+		if (_bulletPatern <= 15)
 		{
-			bullet_patern++;
+			_bulletPatern++;
 		}
 
-		if (bullet_patern >= 15)
+		if (_bulletPatern >= 15)
 		{
-			player_bullets++;
+			_playerProjectile++;
 			Projectile* bullet = new Projectile;
-			Game::_gameObjectManager.Add("bullet" + (char(player_bullets)), bullet);
+			Game::_gameObjectManager.Add("bullet" + std::to_string(_playerProjectile), bullet);
 			bullet->SetPosition(this->GetPosition().x, this->GetPosition().y);
-			bullet_patern = 0;
+			_bulletPatern = 0;
 		}
+	}
 
-		if (Game::_gameObjectManager.Get("bullet" + (char(player_bullets))) != NULL){
-			if (Game::_gameObjectManager.Get("bullet" + (char(player_bullets)))->GetPosition().x >= Game::SCREEN_WIDTH)
-			{
-				Game::_gameObjectManager.Remove("bullet" + (char(player_bullets)));
-			}
+	if (Game::_gameObjectManager.Get("bullet" + std::to_string(_playerProjectile)) != NULL) {
+		if (Game::_gameObjectManager.Get("bullet" + std::to_string(_playerProjectile))->GetPosition().x >= Game::SCREEN_WIDTH)
+		{
+			Game::_gameObjectManager.Remove("bullet" + std::to_string(_playerProjectile));
+			std::cout << "Projectile Kill" << std::endl;
 		}
 	}
 
