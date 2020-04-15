@@ -61,6 +61,9 @@ void PlayerShip::Update(float elapsedTime)
 			Game::_gameObjectManager.Add("bullet" + (char)(player_bullets), bullet);
 			bullet->SetPosition(this->GetPosition().x, this->GetPosition().y);
 			bullet_patern = 0;
+		}
+
+		if (Game::_gameObjectManager.Get("bullet" + (char)(player_bullets)) != NULL){
 			if (Game::_gameObjectManager.Get("bullet" + (char)(player_bullets))->GetPosition().x >= Game::SCREEN_WIDTH)
 			{
 				Game::_gameObjectManager.Remove("bullet" + (char)(player_bullets));
