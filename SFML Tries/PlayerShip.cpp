@@ -45,19 +45,11 @@ void PlayerShip::Update(float elapsedTime)
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
-		if (_bulletPatern <= 15)
-		{
-			_bulletPatern++;
-		}
-
-		if (_bulletPatern >= 15)
-		{
-			Projectile* bullet = new Projectile;
-			bullet->SetPosition(GetPosition().x, GetPosition().y);
-			Game::_gameObjectManager.Add("bullet" + std::to_string(_playerProjectile), bullet);
-			_playerProjectile++;
-			_bulletPatern = 0;
-		}
+		Projectile* bullet = new Projectile;
+		bullet->SetPosition(GetPosition().x, GetPosition().y);
+		Game::_gameObjectManager.Add("bullet" + std::to_string(_playerProjectile), bullet);
+		_playerProjectile++;
+		_bulletPatern = 0;
 	}
 
 	for (int i = 0; i < _playerProjectile; ++i)
