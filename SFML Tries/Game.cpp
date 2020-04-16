@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Game.h"
+#include "EndingMenu.h"
 
 sf::Sprite background;
 sf::Texture background_texture;
@@ -9,7 +10,7 @@ void Game::Start(void)
 	if (_gameState != Uninitialized)
 		return;
 //Creates the render window to display all our stuffs.
-	_mainWindow.create(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32), "Pat's Shooter Try");
+	_mainWindow.create(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32), "O Space by Patrick and Alexis");
 	_mainWindow.setFramerateLimit(60);
 
 	PlayerShip *player1 = new PlayerShip();
@@ -58,6 +59,23 @@ void Game::ShowMenu()
 	}
 }
 
+void Game::ShowDeathMenu()
+{
+	EndingMenu endingMenu;
+	EndingMenu::MenuResults result = endingMenu.Show(_mainWindow);
+	switch (result)
+	{
+	case EndingMenu::Exit:
+		_gameState = Game::ShowingMenu;
+		break;
+	case EndingMenu::Play:
+		_gameState = Game::Playing;
+		PlayerShip* player1 = new PlayerShip();
+		player1->SetPosition(200, (SCREEN_WIDTH / 2));
+		_gameObjectManager.Add("Player1", player1);
+		break;
+	}
+}
 
 
 bool Game::IsExisting()
@@ -105,9 +123,17 @@ void Game::GameLoop()
 					{
 						_gameState = Game::Exiting;
 					}
+					if (_gameObjectManager.Get("Player1") == nullptr)
+					{
+						_gameState = Game::Death;
+					}
 					break;
 				}
-		
+			case Game::Death:
+				{
+				ShowDeathMenu();
+				break;
+				}
 	}
 }
 

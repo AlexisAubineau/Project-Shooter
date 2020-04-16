@@ -14,16 +14,17 @@ public:
 	const static int SCREEN_WIDTH = 1024;
 	const static int SCREEN_HEIGHT = 768;
 	static GameObjectManager _gameObjectManager;
+
 private:
 	static bool IsExisting();
 	static void GameLoop();
 
+	static void ShowDeathMenu();
 	static void ShowSplashScreen();
 	static void ShowMenu();
 
-	enum GameState {Uninitialized, ShowingSplash, Paused, ShowingMenu, Playing, Exiting};
-	static GameState _gameState;
 	static sf::RenderWindow _mainWindow;
 
-	
+	enum GameState { Uninitialized, ShowingSplash, Paused, ShowingMenu, Playing, Exiting, Death };
+	static GameState _gameState;
 };

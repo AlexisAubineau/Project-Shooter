@@ -1,7 +1,7 @@
 #include "EndingMenu.h"
 #include "stdafx.h"
 
-EndingMenu::MenuResult EndingMenu::Show(sf::RenderWindow& window)
+EndingMenu::MenuResults EndingMenu::Show(sf::RenderWindow& window)
 {
 	//Load Menu Image from file
 	sf::Texture image;
@@ -11,7 +11,7 @@ EndingMenu::MenuResult EndingMenu::Show(sf::RenderWindow& window)
 	//Setup Clickable Regions based on screen coordinates
 
 	//Play Game button item coordinates
-	MenuItem playButton;
+	MenuItems playButton;
 	playButton.rect.top = 145;
 	playButton.rect.height = 380;
 	playButton.rect.left = 0;
@@ -19,7 +19,7 @@ EndingMenu::MenuResult EndingMenu::Show(sf::RenderWindow& window)
 	playButton.action = Play;
 
 	//Exit Game button item coordinates
-	MenuItem exitButton;
+	MenuItems exitButton;
 	exitButton.rect.top = 383;
 	exitButton.rect.height = 560;
 	exitButton.rect.left = 0;
@@ -34,9 +34,9 @@ EndingMenu::MenuResult EndingMenu::Show(sf::RenderWindow& window)
 	return GetMenuResponse(window);
 }
 
-EndingMenu::MenuResult EndingMenu::HandleClick(int x, int y)
+EndingMenu::MenuResults EndingMenu::HandleClick(int x, int y)
 {
-	std::list<MenuItem>::iterator it;
+	std::list<MenuItems>::iterator it;
 
 	for (it = _menuItems.begin(); it != _menuItems.end(); it++)
 	{
@@ -53,7 +53,7 @@ EndingMenu::MenuResult EndingMenu::HandleClick(int x, int y)
 	return Nothing;
 }
 
-EndingMenu::MenuResult EndingMenu::GetMenuResponse(sf::RenderWindow& window)
+EndingMenu::MenuResults EndingMenu::GetMenuResponse(sf::RenderWindow& window)
 {
 	sf::Event menuEvent;
 

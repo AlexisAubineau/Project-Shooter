@@ -5,20 +5,18 @@
 class EndingMenu
 {
 public:
-	enum MenuResult { Nothing, Exit, Play };
+	enum MenuResults { Nothing, Exit, Play };
 
-	struct MenuItem
+	struct MenuItems
 	{
 	public:
 		sf::Rect<int> rect;
-		MenuResult action;
+		MenuResults action;
 	};
-	MenuResult Show(sf::RenderWindow& window);
+	MenuResults Show(sf::RenderWindow& window);
 
 private:
-	MenuResult GetMenuResponse(sf::RenderWindow& window);
-	MenuResult HandleClick(int x, int y);
-	std::list<MenuItem> _menuItems;
+	MenuResults GetMenuResponse(sf::RenderWindow& window);
+	MenuResults HandleClick(int x, int y);
+	std::list<MenuItems> _menuItems;
 };
-
-#pragma once

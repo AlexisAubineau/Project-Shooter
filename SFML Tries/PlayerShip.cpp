@@ -1,7 +1,5 @@
 #include "stdafx.h"
 #include "PlayerShip.h"
-
-#include "Enemy_projectile.h"
 #include "Game.h"
 #include "Projectile.h"
 
@@ -74,11 +72,18 @@ void PlayerShip::Update(float elapsedTime)
 		}
 	}
 
-	if (EnemyProjectile().GetBoundingRect().intersects(GetBoundingRect()))
+	for (int j = 0; j < Game::_gameObjectManager.GetObjectCount(); ++j)
 	{
-		delete this;
+		if (Game::_gameObjectManager.Get("laser" + std::to_string(j)) != nullptr
+			&& Game::_gameObjectManager.Get("Player1")->GetBoundingRect().intersects(Game::_gameObjectManager.Get("laser" + std::to_string(j))->GetBoundingRect()))
+		{
+			_velocityForward = 0;
+			_velocityRight = 0;
+			Game::_gameObjectManager.Remove("Player1");
+			break;
+		}
 	}
-	
+
 	if (_velocityForward > _maxVelocity)
 		_velocityForward = _maxVelocity;
 	else if (_velocityRight > _maxVelocity)
@@ -88,7 +93,7 @@ void PlayerShip::Update(float elapsedTime)
 		_velocityForward = -_maxVelocity;
 	else if (_velocityRight < -_maxVelocity)
 		_velocityRight = -_maxVelocity;
-
+	
 	if (GetSprite().getPosition().y >= Game().SCREEN_HEIGHT - 34 || GetSprite().getPosition().y <= 0)
 	{
 		if (GetSprite().getPosition().y > 0)
@@ -102,11 +107,11 @@ void PlayerShip::Update(float elapsedTime)
 			_velocityForward = -_velocityForward / 2;
 		}
 	}
-	
+
 
 	if (GetSprite().getPosition().x >= Game().SCREEN_WIDTH - 82 || GetSprite().getPosition().x <= 0)
 	{
-		if(GetSprite().getPosition().x > 0)
+		if (GetSprite().getPosition().x > 0)
 		{
 			GetSprite().setPosition(Game().SCREEN_WIDTH - 82, GetSprite().getPosition().y);
 			_velocityRight = -_velocityRight / 2;
@@ -117,9 +122,7 @@ void PlayerShip::Update(float elapsedTime)
 			_velocityRight = -_velocityRight / 2;
 		}
 	}
-	
-	sf::Vector2f pos = this->GetPosition();
-	GetSprite().move(_velocityRight , _velocityForward);
+	GetSprite().move(_velocityRight, _velocityForward);
 }
 
 
