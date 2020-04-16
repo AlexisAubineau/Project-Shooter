@@ -14,7 +14,7 @@ NormalEnemy::NormalEnemy() :_velocity(-230.0f),
 {
 	Load("images/normal_enemy.png");
 	assert(IsLoaded());
-	GetSprite().setOrigin(GetSprite().getScale().x / 2, GetSprite().getScale().y / 2);
+	GetSprite().setOrigin(GetSprite().getLocalBounds().width / 2, GetSprite().getLocalBounds().height / 2);
 	float random_int = std::rand() % 360 + 1;
 	_angle = random_int;
 }
@@ -67,6 +67,7 @@ void NormalEnemy::Update(float elapsedTime)
 		{
 			Game::_gameObjectManager.Remove("laser" + std::to_string(i));
 			lasernbr = 0;
+			break;
 		}
 		
 	}

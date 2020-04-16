@@ -1,17 +1,2 @@
-﻿  Enemy_Projectile.cpp
-  Enemy_Wave_Spawner.cpp
-c:\users\patrick 96\source\repos\shooter\project-shooter\sfml tries\enemy_wave_spawner.cpp(41): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-  Game.cpp
-  GameObjectManager.cpp
-  Main.cpp
-  Normal_enemy.cpp
-c:\users\patrick 96\source\repos\shooter\project-shooter\sfml tries\normal_enemy.cpp(18): warning C4244: 'initialisation' : conversion de 'int' en 'float', perte possible de données
-  PlayerShip.cpp
-  Projectile.cpp
-  VisibleGameObject.cpp
-  Génération de code en cours
-  38 of 411 functions ( 9.2%) were compiled, the rest were copied from previous compilation.
-    2 functions were new in current compilation
-    3 functions had inline decision re-evaluated but remain unchanged
-  Fin de la génération du code
-  SFML Tries.vcxproj -> C:\Users\patrick 96\source\repos\Shooter\Project-Shooter\Release\SFML Tries.exe
+﻿Game.obj : error LNK2001: symbole externe non résolu "public: enum EndingMenu::MenuResults __thiscall EndingMenu::Show(class sf::RenderWindow &)" (?Show@EndingMenu@@QAE?AW4MenuResults@1@AAVRenderWindow@sf@@@Z)
+C:\Users\patrick 96\source\repos\Shooter\Project-Shooter\Release\SFML Tries.exe : fatal error LNK1120: 1 externes non résolus
