@@ -1,4 +1,5 @@
 #pragma once
+#include "Projectile.h"
 #include "VisibleGameObject.h"
 
 class PlayerShip : public VisibleGameObject

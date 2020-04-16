@@ -30,7 +30,6 @@ void PlayerShip::Update(float elapsedTime)
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
 	{
 		_velocityForward -= 1.0f;
-		//std::cout << "Position Player : x:" << GetSprite().getPosition().y << std::endl;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
