@@ -66,8 +66,9 @@ void NormalEnemy::Update(float elapsedTime)
 			Game::_gameObjectManager.Get("laser"+std::to_string(i))->GetPosition().x <= 0)
 		{
 			Game::_gameObjectManager.Remove("laser" + std::to_string(i));
-			break;
+			lasernbr = 0;
 		}
+		
 	}
 	
 	std::cout << Game::_gameObjectManager.GetObjectCount() <<std::endl;

@@ -1,9 +1,13 @@
+#include "StdAfx.h"
 #include "VisibleGameObject.h"
-#include "stdafx.h"
 
-VisibleGameObject::VisibleGameObject():_isLoaded(false)
+
+VisibleGameObject::VisibleGameObject()
+	: _isLoaded(false)
 {
+	//_isLoaded = false; Slightly faster to use the above constructor initialization.
 }
+
 
 VisibleGameObject::~VisibleGameObject()
 {
@@ -24,7 +28,7 @@ void VisibleGameObject::Load(std::string filename)
 	}
 }
 
-void VisibleGameObject::Draw(sf::RenderWindow& renderWindow)
+void VisibleGameObject::Draw(sf::RenderWindow & renderWindow)
 {
 	if (_isLoaded)
 	{
@@ -32,11 +36,9 @@ void VisibleGameObject::Draw(sf::RenderWindow& renderWindow)
 	}
 }
 
-void VisibleGameObject::Update(float elaspedTime)
+void VisibleGameObject::Update(float elapsedTime)
 {
-	
 }
-
 
 void VisibleGameObject::SetPosition(float x, float y)
 {
@@ -55,46 +57,27 @@ sf::Vector2f VisibleGameObject::GetPosition() const
 	return sf::Vector2f();
 }
 
+float VisibleGameObject::GetHeight() const
+{
+	return _sprite.getLocalBounds().height;
+}
+
+float VisibleGameObject::GetWidth() const
+{
+	return _sprite.getLocalBounds().width;
+}
+
+sf::Rect<float> VisibleGameObject::GetBoundingRect() const
+{
+	return _sprite.getGlobalBounds();
+}
+
 sf::Sprite& VisibleGameObject::GetSprite()
 {
 	return _sprite;
 }
 
-bool VisibleGameObject::IsLoaded()
+bool VisibleGameObject::IsLoaded() const
 {
 	return _isLoaded;
 }
-
-float VisibleGameObject::GetHeight() const
-{
-	return _sprite.getScale().y;
-}
-
-float VisibleGameObject::GetWidth() const
-{
-	return _sprite.getScale().x;
-}
-
-sf::Rect<float> VisibleGameObject::GetBoundingRect() const
-{
-	sf::Vector2f size = _sprite.getScale();
-	sf::Vector2f position = _sprite.getPosition();
-
-	return sf::Rect<float>(
-		position.x - size.x / 2,
-		position.y - size.y / 2,
-		position.x + size.x / 2,
-		position.y + size.y / 2
-		);
-}
-
-
-
-
-
-
-
-
-
-
-
