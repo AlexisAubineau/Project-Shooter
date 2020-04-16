@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "PlayerShip.h"
+
+#include "Enemy_projectile.h"
 #include "Game.h"
 #include "Projectile.h"
 
@@ -68,6 +70,11 @@ void PlayerShip::Update(float elapsedTime)
 		}
 	}
 
+	if (EnemyProjectile().GetBoundingRect().intersects(GetBoundingRect()))
+	{
+		delete this;
+	}
+	
 	if (_velocityForward > _maxVelocity)
 		_velocityForward = _maxVelocity;
 	else if (_velocityRight > _maxVelocity)
