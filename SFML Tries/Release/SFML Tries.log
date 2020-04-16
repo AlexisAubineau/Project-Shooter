@@ -1,2 +1,5 @@
-﻿Game.obj : error LNK2001: symbole externe non résolu "public: enum EndingMenu::MenuResults __thiscall EndingMenu::Show(class sf::RenderWindow &)" (?Show@EndingMenu@@QAE?AW4MenuResults@1@AAVRenderWindow@sf@@@Z)
-C:\Users\patrick 96\source\repos\Shooter\Project-Shooter\Release\SFML Tries.exe : fatal error LNK1120: 1 externes non résolus
+﻿  EndingMenu.cpp
+  Génération de code en cours
+  All 479 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Fin de la génération du code
+  SFML Tries.vcxproj -> C:\Users\patrick 96\source\repos\Shooter\Project-Shooter\Release\SFML Tries.exe
