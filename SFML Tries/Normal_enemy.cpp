@@ -6,8 +6,8 @@
 
 
 float shoot_patern = 0;
-std::vector<VisibleGameObject> laserArray(20);
-EnemyProjectile laser;
+int lasernbr = 0;
+
 
 NormalEnemy::NormalEnemy() :_velocity(-230.0f),
 							_elapsedTimeSinceStart(0.0f)
@@ -52,24 +52,22 @@ void NormalEnemy::Update(float elapsedTime)
 	
 	if (shoot_patern >= 30)
 	{
-		laser.SetPosition(GetPosition().x, GetPosition().y);
-		laserArray.push_back(laser);
+		EnemyProjectile* laser = new EnemyProjectile;
+		laser->SetPosition(GetPosition().x, GetPosition().y);
+		Game::_gameObjectManager.Add("laser" + std::to_string(lasernbr), laser);
+		lasernbr++;
 		shoot_patern = 0;
 	}
 	
-	for (size_t i = 0; i < laserArray.size(); ++i)
+	for (int i = 0; i < lasernbr; ++i)
 	{
-		laserArray[i].Draw(Game::GetWindow());
-		laserArray[i].GetSprite().move(-10.0f, 0);
-		if (laserArray[i].GetPosition().x == 0)
+		
+		if (Game::_gameObjectManager.Get("laser" + std::to_string(i)) != nullptr && 
+			Game::_gameObjectManager.Get("laser"+std::to_string(i))->GetPosition().x <= 0)
 		{
-			laserArray.erase(laserArray.begin() + i);
+			Game::_gameObjectManager.Remove("laser" + std::to_string(i));
+			break;
 		}
-	}
-
-	if (Projectile().GetBoundingRect().intersects(GetBoundingRect()))
-	{
-		delete this;
 	}
 	
 	std::cout << Game::_gameObjectManager.GetObjectCount() <<std::endl;
