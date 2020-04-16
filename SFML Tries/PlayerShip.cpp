@@ -69,6 +69,7 @@ void PlayerShip::Update(float elapsedTime)
 			Game::_gameObjectManager.Get("bullet" + std::to_string(i))->GetPosition().x >= Game::SCREEN_WIDTH)
 		{
 			Game::_gameObjectManager.Remove("bullet" + std::to_string(i));
+			_playerProjectile = 0;
 			break;
 		}
 	}
