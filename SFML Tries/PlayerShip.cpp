@@ -54,19 +54,22 @@ void PlayerShip::Update(float elapsedTime)
 
 		if (_bulletPatern >= 15)
 		{
-			_playerProjectile++;
 			Projectile* bullet = new Projectile;
+			bullet->SetPosition(GetPosition().x, GetPosition().y);
 			Game::_gameObjectManager.Add("bullet" + std::to_string(_playerProjectile), bullet);
-			bullet->SetPosition(this->GetPosition().x, this->GetPosition().y);
+			_playerProjectile++;
 			_bulletPatern = 0;
 		}
 	}
 
-	if (Game::_gameObjectManager.Get("bullet" + std::to_string(_playerProjectile)) != NULL) {
-		if (Game::_gameObjectManager.Get("bullet" + std::to_string(_playerProjectile))->GetPosition().x >= Game::SCREEN_WIDTH)
+	for (int i = 0; i < _playerProjectile; ++i)
+	{
+
+		if (Game::_gameObjectManager.Get("bullet" + std::to_string(i)) != nullptr &&
+			Game::_gameObjectManager.Get("bullet" + std::to_string(i))->GetPosition().x >= Game::SCREEN_WIDTH)
 		{
-			Game::_gameObjectManager.Remove("bullet" + std::to_string(_playerProjectile));
-			std::cout << "Projectile Kill" << std::endl;
+			Game::_gameObjectManager.Remove("bullet" + std::to_string(i));
+			break;
 		}
 	}
 
