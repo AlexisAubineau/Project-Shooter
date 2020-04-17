@@ -5,12 +5,11 @@
 #include "Game.h"
 
 
-float shoot_patern = 0;
-int lasernbr = 0;
-
 
 NormalEnemy::NormalEnemy() :_velocity(-230.0f),
-							_elapsedTimeSinceStart(0.0f)
+							_elapsedTimeSinceStart(0.0f),
+							_shoot_patern(0),
+							_lasernbr(0)
 {
 	Load("images/normal_enemy.png");
 	assert(IsLoaded());
@@ -37,9 +36,9 @@ void NormalEnemy::Update(float elapsedTime)
 {
 	_elapsedTimeSinceStart += elapsedTime;
 
-	if (shoot_patern <= 30)
+	if (_shoot_patern <= 30)
 	{
-		shoot_patern++;
+		_shoot_patern++;
 	}
 	
 	
@@ -50,29 +49,28 @@ void NormalEnemy::Update(float elapsedTime)
 	float moveByY = LinearVelocityY(_angle++) * moveAmount;
 
 	
-	if (shoot_patern >= 30)
+	if (_shoot_patern >= 30)
 	{
 		EnemyProjectile* laser = new EnemyProjectile;
 		laser->SetPosition(GetPosition().x, GetPosition().y);
-		Game::_gameObjectManager.Add("laser" + std::to_string(lasernbr), laser);
-		lasernbr++;
-		shoot_patern = 0;
+		Game::_gameObjectManager.Add("laser" + std::to_string(_lasernbr), laser);
+		_lasernbr++;
+		_shoot_patern = 0;
 	}
 	
-	for (int i = 0; i < lasernbr; ++i)
+	for (int i = 0; i < _lasernbr; ++i)
 	{
 		
 		if (Game::_gameObjectManager.Get("laser" + std::to_string(i)) != nullptr && 
 			Game::_gameObjectManager.Get("laser"+std::to_string(i))->GetPosition().x <= 0)
 		{
 			Game::_gameObjectManager.Remove("laser" + std::to_string(i));
-			lasernbr = 0;
+			_lasernbr = 0;
 			break;
 		}
 		
 	}
 	
-	std::cout << Game::_gameObjectManager.GetObjectCount() <<std::endl;
 	GetSprite().move(moveByX, moveByY);
 }
 

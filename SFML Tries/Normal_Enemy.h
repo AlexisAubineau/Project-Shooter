@@ -17,6 +17,9 @@ private:
 	float _angle;
 	float _elapsedTimeSinceStart;
 
+	float _shoot_patern = 0;
+	int _lasernbr = 0;
+
 	float LinearVelocityX(float angle);
 	float LinearVelocityY(float angle);
 };

@@ -5,7 +5,7 @@
 VisibleGameObject::VisibleGameObject()
 	: _isLoaded(false)
 {
-	//_isLoaded = false; Slightly faster to use the above constructor initialization.
+
 }
 
 
