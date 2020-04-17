@@ -1,8 +1,8 @@
 ﻿  Enemy_Wave_Spawner.cpp
 c:\users\patrick 96\source\repos\shooter\project-shooter\sfml tries\enemy_wave_spawner.cpp(38): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
   Génération de code en cours
-  2 of 483 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
+  1 of 483 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Fin de la génération du code
   SFML Tries.vcxproj -> C:\Users\patrick 96\source\repos\Shooter\Project-Shooter\Release\SFML Tries.exe
