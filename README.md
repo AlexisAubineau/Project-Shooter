@@ -1,8 +1,8 @@
 # O Space Made By Patrcik and Alexis
 
-Projet crée à partir de la SFML 2.5.1, le but de se projet étais de créer une architecture forte capable de servir de base sur d'autre projet perso et d'évaluer nos compétences acquises en C++
+Projet créé à partir de la SFML 2.5.1, le but de ce projet étais de créer une architecture forte capable de servir de base sur d'autres projets perso et d'évaluer nos compétences acquises en C++
 
-L’exécutable du projet se trouve dans l'onglet release du repo github:
+L’exécutable du projet est disponible à l'adesse suivante :
 [Lien release Github](https://github.com/AlexisAubineau/Project-Shooter/releases)
 
 Les sources du projet sont disponible à l'adresse suivante :
@@ -10,7 +10,7 @@ Les sources du projet sont disponible à l'adresse suivante :
 
 ## Travail réalisé par l'équipe :
 
-Pour se projet nous avons constitué une équipe de 2 personnes:
+Pour ce projet nous avons constitué une équipe de 2 personnes:
 
  - Patrick
  - Alexis
