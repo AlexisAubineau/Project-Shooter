@@ -66,7 +66,7 @@ void Game::ShowDeathMenu()
 	switch (result)
 	{
 	case EndingMenu::Exit:
-		_gameState = Game::ShowingMenu;
+		_gameState = Game::Exiting;
 		break;
 	case EndingMenu::Play:
 		_gameState = Game::Playing;

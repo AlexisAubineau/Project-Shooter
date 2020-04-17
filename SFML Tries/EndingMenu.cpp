@@ -12,16 +12,16 @@ EndingMenu::MenuResults EndingMenu::Show(sf::RenderWindow& window)
 
 	//Play Game button item coordinates
 	MenuItems playButton;
-	playButton.rect.top = 145;
-	playButton.rect.height = 380;
+	playButton.rect.top = 340;
+	playButton.rect.height = 490;
 	playButton.rect.left = 0;
 	playButton.rect.width = 1023;
 	playButton.action = Play;
 
 	//Exit Game button item coordinates
 	MenuItems exitButton;
-	exitButton.rect.top = 383;
-	exitButton.rect.height = 560;
+	exitButton.rect.top = 500;
+	exitButton.rect.height = 650;
 	exitButton.rect.left = 0;
 	exitButton.rect.width = 1023;
 	exitButton.action = Exit;
