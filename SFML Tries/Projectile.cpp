@@ -2,8 +2,6 @@
 #include "stdafx.h"
 #include "Game.h"
 
-Projectile* bullet = new Projectile;
-
 Projectile::Projectile()
 {
 	Load("images/bullet.png");

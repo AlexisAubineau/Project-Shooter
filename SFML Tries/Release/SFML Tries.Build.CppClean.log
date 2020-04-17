@@ -1,23 +1,26 @@
-c:\users\patrick 96\source\repos\shooter\project-shooter\sfml tries\release\vc141.pdb
-c:\users\patrick 96\source\repos\shooter\project-shooter\sfml tries\release\visiblegameobject.obj
-c:\users\patrick 96\source\repos\shooter\project-shooter\sfml tries\release\normal_enemy.obj
-c:\users\patrick 96\source\repos\shooter\project-shooter\sfml tries\release\enemy_wave_spawner.obj
-c:\users\patrick 96\source\repos\shooter\project-shooter\sfml tries\release\projectile.obj
-c:\users\patrick 96\source\repos\shooter\project-shooter\sfml tries\release\playership.obj
-c:\users\patrick 96\source\repos\shooter\project-shooter\sfml tries\release\main.obj
-c:\users\patrick 96\source\repos\shooter\project-shooter\sfml tries\release\gameobjectmanager.obj
-c:\users\patrick 96\source\repos\shooter\project-shooter\sfml tries\release\game.obj
-c:\users\patrick 96\source\repos\shooter\project-shooter\sfml tries\release\enemy_projectile.obj
-c:\users\patrick 96\source\repos\shooter\project-shooter\sfml tries\release\stdafx.obj
-c:\users\patrick 96\source\repos\shooter\project-shooter\sfml tries\release\splashscreen.obj
-c:\users\patrick 96\source\repos\shooter\project-shooter\sfml tries\release\mainmenu.obj
-c:\users\patrick 96\source\repos\shooter\project-shooter\release\sfml tries.ipdb
-c:\users\patrick 96\source\repos\shooter\project-shooter\release\sfml tries.iobj
-c:\users\patrick 96\source\repos\shooter\project-shooter\release\sfml tries.pdb
-c:\users\patrick 96\source\repos\shooter\project-shooter\sfml tries\release\sfml tries.tlog\cl.command.1.tlog
-c:\users\patrick 96\source\repos\shooter\project-shooter\sfml tries\release\sfml tries.tlog\cl.read.1.tlog
-c:\users\patrick 96\source\repos\shooter\project-shooter\sfml tries\release\sfml tries.tlog\cl.write.1.tlog
-c:\users\patrick 96\source\repos\shooter\project-shooter\sfml tries\release\sfml tries.tlog\link.command.1.tlog
-c:\users\patrick 96\source\repos\shooter\project-shooter\sfml tries\release\sfml tries.tlog\link.read.1.tlog
-c:\users\patrick 96\source\repos\shooter\project-shooter\sfml tries\release\sfml tries.tlog\link.write.1.tlog
-c:\users\patrick 96\source\repos\shooter\project-shooter\sfml tries\release\sfml tries.tlog\sfml tries.write.1u.tlog
+\\mac\home\desktop\sfml tries\release\sfml tries.ipdb
+\\mac\home\desktop\sfml tries\release\sfml tries.iobj
+\\mac\home\desktop\sfml tries\release\sfml tries.exe
+\\mac\home\desktop\sfml tries\release\sfml tries.pdb
+\\mac\home\desktop\sfml tries\sfml tries\release\vc142.pdb
+\\mac\home\desktop\sfml tries\sfml tries\release\visiblegameobject.obj
+\\mac\home\desktop\sfml tries\sfml tries\release\stdafx.obj
+\\mac\home\desktop\sfml tries\sfml tries\release\splashscreen.obj
+\\mac\home\desktop\sfml tries\sfml tries\release\projectile.obj
+\\mac\home\desktop\sfml tries\sfml tries\release\playership.obj
+\\mac\home\desktop\sfml tries\sfml tries\release\normal_enemy.obj
+\\mac\home\desktop\sfml tries\sfml tries\release\main.obj
+\\mac\home\desktop\sfml tries\sfml tries\release\mainmenu.obj
+\\mac\home\desktop\sfml tries\sfml tries\release\gameobjectmanager.obj
+\\mac\home\desktop\sfml tries\sfml tries\release\game.obj
+\\mac\home\desktop\sfml tries\sfml tries\release\enemy_wave_spawner.obj
+\\mac\home\desktop\sfml tries\sfml tries\release\enemy_projectile.obj
+\\mac\home\desktop\sfml tries\sfml tries\release\endingmenu.obj
+\\mac\home\desktop\sfml tries\sfml tries\release\sfml tries.tlog\sfml tries.write.1u.tlog
+\\mac\home\desktop\sfml tries\sfml tries\release\sfml tries.tlog\link.read.1.tlog
+\\mac\home\desktop\sfml tries\sfml tries\release\sfml tries.tlog\link.command.1.tlog
+\\mac\home\desktop\sfml tries\sfml tries\release\sfml tries.tlog\link.write.1.tlog
+\\mac\home\desktop\sfml tries\sfml tries\release\sfml tries.tlog\link.delete.1.tlog
+\\mac\home\desktop\sfml tries\sfml tries\release\sfml tries.tlog\cl.read.1.tlog
+\\mac\home\desktop\sfml tries\sfml tries\release\sfml tries.tlog\cl.command.1.tlog
+\\mac\home\desktop\sfml tries\sfml tries\release\sfml tries.tlog\cl.write.1.tlog

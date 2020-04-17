@@ -1,2 +1,18 @@
-﻿  Game.cpp
+﻿  EndingMenu.cpp
+  Enemy_Projectile.cpp
+  Enemy_Wave_Spawner.cpp
+\\Mac\Home\Desktop\SFML Tries\SFML Tries\Enemy_Wave_Spawner.cpp(44,31): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+  Game.cpp
+  GameObjectManager.cpp
+\\Mac\Home\Desktop\SFML Tries\SFML Tries\GameObjectManager.cpp(44,28): warning C4267: 'return' : conversion de 'size_t' en 'int', perte possible de données
+  MainMenu.cpp
+  Main.cpp
+  Normal_enemy.cpp
+\\Mac\Home\Desktop\SFML Tries\SFML Tries\Normal_enemy.cpp(18,19): warning C4244: 'initialisation' : conversion de 'int' en 'float', perte possible de données
+  PlayerShip.cpp
+  Projectile.cpp
+  SplashScreen.cpp
+  stdafx.cpp
+  VisibleGameObject.cpp
+  Génération de code en cours...
 sfml-window-d.lib(sfml-window-d-2.dll) : fatal error LNK1112: type d'ordinateur module 'x86' en conflit avec le type d'ordinateur cible 'x64'

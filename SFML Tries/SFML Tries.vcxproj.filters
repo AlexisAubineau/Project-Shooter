@@ -93,4 +93,33 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="images\background.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\boss_enemy.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\bullet_enemy.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\ending_screen.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\mainmenu.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\normal_enemy.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\ship.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\SplashScreen.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\bullet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>
