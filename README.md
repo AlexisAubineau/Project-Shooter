@@ -47,7 +47,7 @@ Pour ce projet nous avons constitué une équipe de 2 personnes:
 
 ## Difficultés rencontré :
 
- - Patrick :
+ #### Patrick :
  
   - Le moteur:
     * Création des differents outils: GameObject, GameObjectManager
@@ -58,7 +58,7 @@ Pour ce projet nous avons constitué une équipe de 2 personnes:
     * Gros mal a spawn des mobs en vagues, 
     * Gerer les collisions des mobs par rapports aux balles
     
- - Alexis :
+ #### Alexis :
  
   - Gestion des projectiles
   - Gestion de la suppression du joueur lors de ça mort
