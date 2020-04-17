@@ -35,7 +35,7 @@ void EnemyWaveSpawner::Update(float elapsedTime)
 		if (_mobDestroyed <= 5)
 		{
 			NormalEnemy* mobs = new NormalEnemy();
-			mobs->SetPosition(800, 200 + rand() % 500);
+			mobs->SetPosition(800, Game::SCREEN_HEIGHT/2 + rand() % (Game::SCREEN_HEIGHT/2));
 			_SpawnInterval = 0;
 			Game::_gameObjectManager.Add("mob" + std::to_string(_mobCount), mobs);
 			_mobCount++;
@@ -43,13 +43,13 @@ void EnemyWaveSpawner::Update(float elapsedTime)
 		{
 			NormalEnemy* mobs = new NormalEnemy();
 			mobs->Load("images/boss_enemy.png");
-			mobs->SetPosition(800, 500);
+			mobs->SetPosition(800, Game::SCREEN_HEIGHT/ 2);
 			
 			Game::_gameObjectManager.Add("mob" + std::to_string(_mobCount), mobs);
 			_mobDestroyed = 0;
 
 			_SpawnInterval = 0;
-			_difficulty+=_difficulty;
+			_difficulty+=4;
 			_mobCount++;
 		}
 
@@ -72,8 +72,6 @@ void EnemyWaveSpawner::Update(float elapsedTime)
 				
 			}
 		}
-			
-		std::cout << _difficulty << std::endl;
 		
 	}
 	

@@ -7,7 +7,7 @@ PlayerShip::PlayerShip(): _velocityRight(0), _velocityForward(0), _maxVelocity(1
 {
 	Load("images/ship.png");
 	assert(IsLoaded());
-	GetSprite().setOrigin(GetSprite().getScale().x / 2, GetSprite().getScale().y / 2);
+	GetSprite().setOrigin(GetSprite().getLocalBounds().width / 2, GetSprite().getLocalBounds().height / 2);
 }
 
 PlayerShip::~PlayerShip()
