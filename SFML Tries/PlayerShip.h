@@ -9,14 +9,19 @@ public:
 	~PlayerShip();
 	
 	void Update(float elapsedTime);
+	void PlayerControl();
+	void PlayerDeplacementZone();
+	void PlayerShoot();
+	void PlayerShootRemove();
+	void PlayerDeath();
 	void Draw(sf::RenderWindow& rw);
+	
 	float GetVelocity() const;
 
 private:
 	float _velocityRight;
 	float _velocityForward;
 	float _maxVelocity;
-	float _bulletPatern;
 	
 	int _playerProjectile;
 };

@@ -3,7 +3,7 @@
 #include "Game.h"
 #include "Projectile.h"
 
-PlayerShip::PlayerShip():_velocityRight(0), _velocityForward(0), _maxVelocity(10), _bulletPatern(0), _playerProjectile(0)
+PlayerShip::PlayerShip():_velocityRight(0), _velocityForward(0), _maxVelocity(10), _playerProjectile(0)
 {
 	Load("images/ship.png");
 	assert(IsLoaded());
@@ -25,7 +25,7 @@ float PlayerShip::GetVelocity() const
 	return _velocityRight, _velocityForward;
 }
 
-void PlayerShip::Update(float elapsedTime)
+void PlayerShip::PlayerControl()
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
 	{
@@ -45,35 +45,7 @@ void PlayerShip::Update(float elapsedTime)
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
-		Projectile* bullet = new Projectile;
-		bullet->SetPosition(GetPosition().x, GetPosition().y);
-		Game::_gameObjectManager.Add("bullet" + std::to_string(_playerProjectile), bullet);
-		_playerProjectile++;
-		_bulletPatern = 0;
-	}
-
-	for (int i = 0; i < _playerProjectile; ++i)
-	{
-
-		if (Game::_gameObjectManager.Get("bullet" + std::to_string(i)) != nullptr &&
-			Game::_gameObjectManager.Get("bullet" + std::to_string(i))->GetPosition().x >= Game::SCREEN_WIDTH)
-		{
-			Game::_gameObjectManager.Remove("bullet" + std::to_string(i));
-			_playerProjectile = 0;
-			break;
-		}
-	}
-
-	for (int j = 0; j < Game::_gameObjectManager.GetObjectCount(); ++j)
-	{
-		if (Game::_gameObjectManager.Get("laser" + std::to_string(j)) != nullptr
-			&& Game::_gameObjectManager.Get("Player1")->GetBoundingRect().intersects(Game::_gameObjectManager.Get("laser" + std::to_string(j))->GetBoundingRect()))
-		{
-			_velocityForward = 0;
-			_velocityRight = 0;
-			Game::_gameObjectManager.Remove("Player1");
-			break;
-		}
+		PlayerShoot();
 	}
 
 	if (_velocityForward > _maxVelocity)
@@ -85,7 +57,12 @@ void PlayerShip::Update(float elapsedTime)
 		_velocityForward = -_maxVelocity;
 	else if (_velocityRight < -_maxVelocity)
 		_velocityRight = -_maxVelocity;
-	
+
+	GetSprite().move(_velocityRight, _velocityForward);
+}
+
+void PlayerShip::PlayerDeplacementZone()
+{
 	if (GetSprite().getPosition().y >= Game().SCREEN_HEIGHT - 34 || GetSprite().getPosition().y <= 0)
 	{
 		if (GetSprite().getPosition().y > 0)
@@ -114,7 +91,55 @@ void PlayerShip::Update(float elapsedTime)
 			_velocityRight = -_velocityRight / 2;
 		}
 	}
-	GetSprite().move(_velocityRight, _velocityForward);
+}
+
+void PlayerShip::PlayerShoot()
+{
+	Projectile* bullet = new Projectile;
+	bullet->SetPosition(GetPosition().x, GetPosition().y);
+	Game::_gameObjectManager.Add("bullet" + std::to_string(_playerProjectile), bullet);
+	_playerProjectile++;
+}
+
+
+void PlayerShip::PlayerShootRemove()
+{
+	for (int i = 0; i < _playerProjectile; ++i)
+	{
+
+		if (Game::_gameObjectManager.Get("bullet" + std::to_string(i)) != nullptr &&
+			Game::_gameObjectManager.Get("bullet" + std::to_string(i))->GetPosition().x >= Game::SCREEN_WIDTH)
+		{
+			Game::_gameObjectManager.Remove("bullet" + std::to_string(i));
+			_playerProjectile = 0;
+			break;
+		}
+	}
+}
+
+void PlayerShip::PlayerDeath()
+{
+	for (int j = 0; j < Game::_gameObjectManager.GetObjectCount(); ++j)
+	{
+		if (Game::_gameObjectManager.Get("laser" + std::to_string(j)) != nullptr
+			&& Game::_gameObjectManager.Get("Player1")->GetBoundingRect().intersects(Game::_gameObjectManager.Get("laser" + std::to_string(j))->GetBoundingRect()))
+		{
+			_velocityForward = 0;
+			_velocityRight = 0;
+			Game::_gameObjectManager.Remove("Player1");
+			break;
+		}
+	}
+}
+
+
+
+void PlayerShip::Update(float elapsedTime)
+{
+	PlayerControl();
+	PlayerDeplacementZone();
+	PlayerShootRemove();
+	PlayerDeath();
 }
 
 
