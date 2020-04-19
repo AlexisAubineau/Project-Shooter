@@ -8,6 +8,12 @@ L’exécutable du projet est disponible à l'adesse suivante :
 Les sources du projet sont disponible à l'adresse suivante :
 [Lien repo Github](https://github.com/AlexisAubineau/Project-Shooter)
 
+## SDK SFML 2.5.1 : 
+Suite au téléchargement des sources du projet vous devriez pouvoir lancer un build de debug ou build une release si vous avez un problème regarder bien dans les propriétés du projets si les chemins ci-dessous sont correcte :
+
+ - Propriété de config -> C/C++ -> Général -> Autres répertoires include : SFML-2.5.1/include
+ - Propriété de config -> Editeur de lien -> Général -> Répertoires de bibliothèques supplémentaires : SFML-2.5.1/lib
+
 ## Controle du jeu : 
 
 Déplacement du joueur :
